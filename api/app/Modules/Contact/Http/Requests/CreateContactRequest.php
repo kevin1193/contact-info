@@ -15,7 +15,7 @@ class CreateContactRequest extends ApiRequest
     public function rules()
     {
         return [
-            'email' => 'required|email',
+            'email' => 'required|email|unique:contacts,email',
             'first_name' => 'required',
             'middle_name' => 'required',
             'last_name' => 'required',
