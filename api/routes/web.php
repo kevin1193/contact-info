@@ -12,5 +12,5 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return \App\Essentials\Services\ApiResponse::responseOK('Contact info');
 });
