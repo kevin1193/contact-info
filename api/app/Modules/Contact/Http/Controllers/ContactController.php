@@ -64,7 +64,7 @@ class ContactController extends Controller
             'state',
             'zip'
         );
-        $contact = ContactRepository::finOfFail($request->contactId);
+        $contact = ContactRepository::findOrFail($request->contactId);
         $contact->update($data);
 
         return ApiResponse::resource((new Contact($contact))->additional(['message' => 'Contact updated successfully!']));
@@ -72,7 +72,7 @@ class ContactController extends Controller
 
     public function destroy(Request $request)
     {
-        $contact = ContactRepository::finOfFail($request->contactId);
+        $contact = ContactRepository::findOrFail($request->contactId);
         $contact->delete();
 
         return ApiResponse::responseOK('Contact deleted successfully!');
